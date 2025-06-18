@@ -1,24 +1,12 @@
-package com.example.Monster.models;
+package com.example.Monster.dtos;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name="reviews")
-public class Review {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ReviewResponse {
     private Long id;
     private String username;
     private double rating;
-
-    @Column(columnDefinition = "TEXT")
     private String body;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
-    private Monster monster;
-
-    public Review() {
+    public ReviewResponse() {
     }
 
     public Long getId() {
@@ -51,13 +39,5 @@ public class Review {
 
     public void setBody(String body) {
         this.body = body;
-    }
-
-    public Monster getMonster() {
-        return monster;
-    }
-
-    public void setMonster(Monster monster) {
-        this.monster = monster;
     }
 }
