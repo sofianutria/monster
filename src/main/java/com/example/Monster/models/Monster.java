@@ -5,15 +5,16 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="products")
 public class Monster {
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
+    private String name;
+    private double price;
+    private String imageUrl;
     private double rating;
+    private int reviewCount;
     @Column(columnDefinition = "TEXT")
-    private String body;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
-    private Monster product;
+    private boolean featured;
 
     public Monster() {
     }
@@ -26,12 +27,28 @@ public class Monster {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public double getRating() {
@@ -42,19 +59,19 @@ public class Monster {
         this.rating = rating;
     }
 
-    public String getBody() {
-        return body;
+    public int getReviewCount() {
+        return reviewCount;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setReviewCount(int reviewCount) {
+        this.reviewCount = reviewCount;
     }
 
-    public Product getProduct() {
-        return product;
+    public boolean isFeatured() {
+        return featured;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setFeatured(boolean featured) {
+        this.featured = featured;
     }
 }
