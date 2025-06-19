@@ -8,6 +8,7 @@ public class ReviewRequest {
     private String username;
     private double rating;
     private String body;
+    //productid
 
     public ReviewRequest() {
     }
